@@ -73,3 +73,50 @@ let ladder = {
 }
 
 ladder.up().up().showStep().down().showStep(); // показывает 2 затем 1
+
+
+
+
+
+//⁡⁣⁣⁢Потеря this⁡
+
+let someUser = {
+    firstName: "Вася",
+    sayHi() {
+      console.log(`Привет, ${this.firstName}!`);
+    }
+};
+  
+setTimeout(someUser.sayHi, 1000); // Привет, undefined!
+//для setTimeout this = window, поэтому оригинальный контекст выполнения теряется
+
+//⁡⁢⁣⁣Решение с помощью bind⁡(привязка this)
+
+let say = someUser.sayHi.bind(someUser)//Теперь у say всегда контекст будет user
+//Теперь say это связанная функция
+setTimeout(say, 1000); // Привет, Вася!
+
+let user2 = {
+    name: 'Олег',
+    say(phrase) {
+        console.log(`${this.name}, говорит ${phrase.toLowerCase()}`);
+    }
+}
+
+let toSay = user2.say.bind(user)
+
+user2.name = 'Дима'
+
+toSay('привет')
+toSay('Пока')
+
+//С помощью bind можно привязать и начальные аргументы
+
+function mul(a, b) {
+    return a * b
+}
+
+let double = mul.bind(null, 2)//bind(context, [arg1], [arg2], ...)
+
+console.log(double(3))//2 * 3
+console.log(double(8))//2 * 8
