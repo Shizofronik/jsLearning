@@ -98,7 +98,7 @@ function go() {
         }) 
 }
 
-function showCircle(cx, cy, radius, callback) {
+function showCircle(cx, cy, radius) {
     
     let div = document.createElement('div');
     div.style.width = 0;
@@ -146,3 +146,46 @@ triple(2, 6000)
         console.log(`result: ${result}`)// 12
         return result * 2})
     .then((result) => console.log(`result: ${result}`))// 24
+
+
+
+
+
+
+
+
+//⁡⁣⁣⁡⁣⁣⁢Пара фишек с обработкой ошибок⁡
+new Promise((resolve, reject) => {
+    throw new Error('Ошибка!')
+}).then(() => console.log('Ошибок нет'))
+  .catch((error) => console.log(error.message))
+  .then(() => console.log('После обработки ошибок управление перешло в ближайший then'))
+
+
+new Promise((resolve, reject) => {
+    throw new Error('error404')
+})
+.then(() => console.log('Ошибок нет'))
+.catch((error) => {
+    if(error.message === 'error405') {
+        console.log(error.message)
+    }
+    else {
+        throw error
+    }})
+.catch((error) => {
+    if(error.message === 'error404') {//сработает этот catch
+        console.log(error.message)
+    }
+    else {
+        console.log('неизвестная ошибка!')
+    }})
+
+
+    
+new Promise(function(resolve, reject) {
+    setTimeout(() => {
+        error = new Error("Whoops!")//Создаем ошибку
+        reject(error)//вызываем callback(error)
+    }, 1000);
+    }).catch((error) => console.log(error));
