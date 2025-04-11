@@ -188,4 +188,20 @@ new Promise(function(resolve, reject) {
         error = new Error("Whoops!")//Создаем ошибку
         reject(error)//вызываем callback(error)
     }, 1000);
-    }).catch((error) => console.log(error));
+    }).catch((error) => console.log(error))
+
+
+
+
+
+
+//⁡⁣⁣⁢Promise API⁡
+/*
+В классе Promise есть 6 статических методов.
+1)⁡⁢⁣⁣Promise.all⁡ - принимает массив промисов, 
+    и возвращает новый промис с результатами выполненных промисов в массиве
+2)⁡⁢⁣⁣Promise.race⁡ - Метод очень похож на Promise.all, 
+    но не ждет выполнения всех промисов, а берет результат из 1-го выполненного 
+3)⁡⁢⁣⁣Promise.any⁡ - Метод работает как и ⁣Promise.race, но ждет первый ⁡⁢⁣⁢успешно⁡ выполненный промис
+4)ну и resolve/reject
+*/
