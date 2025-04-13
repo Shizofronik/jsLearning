@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <style>
+        .message-ball {
+          font-size: 20px;
+          line-height: 200px;
+          text-align: center;
+        }
+        .circle {
+          transition-property: width, height;
+          transition-duration: 2s;
+          position: fixed;
+          transform: translateX(-50%) translateY(-50%);
+          background-color: red;
+          border-radius: 50%;
+        }
+      </style>
+    <title>frontend-test</title>
 </head>
 <body>
-    <script src="./script.js"></script>
+    <script src="./script.js" type="module"></script>
+    <button onclick="go()">Нажми на меня</button>
+
 </body>
 </html>
