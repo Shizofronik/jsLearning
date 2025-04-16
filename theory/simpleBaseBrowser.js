@@ -57,3 +57,40 @@ console.log('previous:', document.body.firstElementChild.previousSibling)
 //firstChild и lastChild тоже возвращают не эелементы, а текстовые узлы
 console.log('first children node:', document.body.firstChild)
 console.log('last children node:', document.body.lastChild)
+
+
+
+
+
+//⁡⁣⁣⁡⁣⁣⁢Поиск элементов⁡
+//getElementById()
+const button = document.getElementById('button1')
+console.log(button)
+//Если элементов с id = button1 было бы несколько, то getElementById вернул бы первый найденный элемент
+//Когда в HTML мы задаем id, у нас автоматически появляется доступ к этой глобальной переменной
+console.log('button1:', button1)//Но лучше так не делать
+
+
+//⁡⁣⁣⁢Поиск по CSS-селектору⁡
+console.log('button by query:', document.querySelector('button'))
+console.log('div by query:', document.querySelector('div'))//Вернет первый div
+console.log('div by query:', document.querySelector('.myDiv'))//Поиск по классу надо указывать через "."
+
+//Получение нескольких элементов по селектору
+const listDiv = document.querySelectorAll('div')
+console.log(listDiv)
+
+//Можно находить также и элементы с разными селекторами:
+console.log('all elements:', document.querySelectorAll('div, button'))
+
+//⁡⁢⁣⁣Поиск от элемента вверх по дереву осуществляется через closest('selector')⁡
+
+//⁡⁣⁣⁢Самый надежный способ находить элементы(data-атрибут)⁡
+//В HTML добавляем к элементам data-атрибут data-js-someName
+//И получаем элементы через селектор по атрибуту [data-js-someName]
+console.log('button:', document.querySelector('[data-js-button1]'))
+console.log('firstDiv:', document.querySelector('[data-js-firstDiv]'))
+console.log('myDiv:', document.querySelector('[data-js-myDiv]'))
+
+//https://learn.javascript.ru/searching-elements-dom#tasks 
+// - решил отсюда задачку, но она буквально устная))
