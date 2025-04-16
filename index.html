@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./script.js" type="module" defer></script>
     <style>
         .message-ball {
           font-size: 20px;
@@ -21,8 +22,8 @@
     <title>frontend-test</title>
 </head>
 <body>
-    <script src="./script.js" type="module"></script>
-    <button onclick="go()">Нажми на меня</button>
-
+    <button id='button1' onclick="go()" data-js-button1>Нажми на меня</button>
+    <div data-js-firstDiv></div>
+    <div class="myDiv" data-js-myDiv></div>
 </body>
 </html>
