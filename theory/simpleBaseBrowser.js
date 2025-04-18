@@ -94,3 +94,37 @@ console.log('myDiv:', document.querySelector('[data-js-myDiv]'))
 
 //https://learn.javascript.ru/searching-elements-dom#tasks 
 // - решил отсюда задачку, но она буквально устная))
+
+
+//⁡⁣⁣⁢Cвойства DOM-элементов⁡
+const formElement = document.querySelector('form')
+console.dir(formElement)
+console.log('form action:', formElement.action)//через геттер получили action
+
+formElement.action = '/register'//изменение значения
+//изменения можно увидеть во вкладке Elements
+
+//С помощью изменения свойства hidden скрываем форму логина
+function hiddenLogin() {
+    formElement.hidden = true
+}
+
+function onViewLogin() {
+    formElement.hidden = false
+}
+
+window.onViewLogin = onViewLogin
+window.hiddenLogin = hiddenLogin
+
+//⁡⁢⁣⁣Для кастомных свойств надо использовать getAttribute(), setAttribute(), removeAttribute()⁡
+//*вообще эти методы подойдут к любым свойствам, но дефолтные можно получать и просто по имени
+
+//hasAttribute - проверка на наличие атрибута у элемента
+console.log('form element has action:', formElement.hasAttribute('action'))//true
+
+//⁡⁢⁣⁢ВАЖНАЯ ДЕТАЛЬ:⁡
+//value у полей ввода(input) следует устанавливать только через setAttribute() 
+// для избежания нестандартного поведения(связанно это с синхронизацией значений)
+
+//attributes - свойство элемента в котором приведены все текущие свойства эотго же элемента
+console.log('form attributes:', formElement.attributes)
