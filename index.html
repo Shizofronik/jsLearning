@@ -22,7 +22,12 @@
     <title>frontend-test</title>
 </head>
 <body>
-    <button id='button1' onclick="go()" data-js-button1>Нажми на меня</button>
+    <form class="form" action="/login">
+      <input class="form__input" name="login" placeholder="Логин">
+    </form>
+    <button onclick="hiddenLogin()" data-js-hiddenButton>Скрыть логин</button>
+    <button onclick="onViewLogin()" data-js-onViewButton>Показать логин</button>
+    <button id='button1' onclick="go()" data-js-button1>Создать круг</button>
     <div data-js-firstDiv></div>
     <div class="myDiv" data-js-myDiv></div>
 </body>
