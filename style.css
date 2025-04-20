@@ -16,11 +16,13 @@
 .box {
   --border-color: red;
 
+  background-color: aquamarine;
+  border: 5px solid var(--border-color);
   height: 100px;
   width: 100px;
-  border: 5px solid var(--border-color);
-  margin: 10px;
-  margin-left: 350px;
+  margin-top: 250px;
+  overflow: auto;
+  padding: 30px;
 }
 
 .yellows {
