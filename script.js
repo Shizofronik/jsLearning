@@ -29,6 +29,7 @@ function showCircle(cx, cy, radius) {
     div.style.height = 0;
     div.style.left = cx + 'px';
     div.style.top = cy + 'px';
+    div.style.marginTop = '30px'
     div.className = 'circle';
     document.body.append(div);
     
@@ -57,7 +58,59 @@ function onViewLogin() {
     formElement.hidden = false
 }
 
+
+const boxElement = document.querySelector('.box')
+const newBoxElement = document.createElement('div')
+
+function createBigBox() {
+    newBoxElement.classList.add('box', 'big')
+    newBoxElement.textContent = 'Новый блок!!!'
+    newBoxElement.style.marginTop = '20px'
+    
+    console.log(newBoxElement)
+    //Если хотим добавить в начало, то использовать prepend
+    //document.body.append(newBoxElement)
+
+    boxElement.style.marginTop = '150px'
+    //before - создать перед элементом(boxElement)
+    //after - создать после элемента
+    boxElement.before(newBoxElement)
+}
+
 window.onViewLogin = onViewLogin
 window.hiddenLogin = hiddenLogin
+window.createBigBox = createBigBox
 
 
+//⁡⁣⁣⁢Всплытие и погружение⁡
+//innerBox вложен в outerBox
+const outerBoxElement = document.querySelector('[data-js-outerBox]')
+const innerBoxElement = document.querySelector('[data-js-innerBox]')
+
+function highlight(element, event) {
+    let ms = 0
+    //Сделаем простенькую задержку, если клик был не по currentTarget элементу
+    if(event.currentTarget !== event.target){
+        ms = 1000
+    }
+    setTimeout(() => {
+        let defaultBorder = element.style.borderColor;
+        let defaultTransition = element.style.transition;
+        
+        element.style.transition = "border-color 1s";
+        element.style.borderColor = "#FDFF47";
+    
+        setTimeout(function()
+        {
+            element.style.borderColor = defaultBorder;
+            setTimeout(function() {
+                element.style.transition = defaultTransition;
+            }, 1000);
+        }, 1000);
+    }, ms)
+
+}
+//Подсветятся оба элемента
+innerBoxElement.addEventListener('click', (event) => highlight(innerBoxElement, event))
+//Подсветится только outer
+outerBoxElement.addEventListener('click', (event) => highlight(outerBoxElement, event))

@@ -18,9 +18,34 @@
 
   background-color: aquamarine;
   border: 5px solid var(--border-color);
+  display: inline-block;
   height: 100px;
   width: 100px;
   margin-top: 250px;
+  overflow: auto;
+  padding: 30px;
+}
+
+.outerBox {
+
+  background-color: blueviolet;
+  border: 5px solid black;
+  border-radius: 5%;
+  display: inline-block;
+  width: 200px;
+  margin-left: 10px;
+  overflow: auto;
+  padding: 30px;
+}
+
+.innerBox {
+
+  background-color: green;
+  border: 5px solid black;
+  border-radius: 5%;
+  height: 100px;
+  width: 100px;
+  margin: 10px;
   overflow: auto;
   padding: 30px;
 }
