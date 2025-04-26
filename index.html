@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="./script.js" type="module" defer></script>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
 
     <title>frontend-test</title>
-</head>
+  </head>
 
-<body>
-    <form class="form" action="/login">
-      <input class="form__input" name="login" placeholder="Логин">
-    </form>
-
-    <button onclick="hiddenLogin()" data-js-hiddenButton>Скрыть логин</button>
-    <button onclick="onViewLogin()" data-js-onViewButton>Показать логин</button>
-    <button id='button1' onclick="go()" data-js-button1>Создать круг</button>
-    <button id='button2' onclick="createBigBox()" data-js-button2>Создать BIGBOX</button>
-
-    <div data-js-firstDiv></div>
-    <div class="box" data-js-Box>
-       Something Text for test
-       Something Text for test
-       Something Text for test
-       Something Text for test
+  <body>
+    <div class="hat">
+      <div class="hat-buttons">
+        <form class="form" action="/login">
+          <input class="form__input" name="login" placeholder="Логин" />
+        </form>
+  
+        <button onclick="hiddenLogin()" data-js-hiddenButton>Скрыть логин</button>
+        <button onclick="onViewLogin()" data-js-onViewButton>Показать логин</button>
+        <button id="button1" onclick="go()" data-js-button1>Создать круг</button>
+        <button id="button2" onclick="createBigBox()" data-js-button2>
+          Создать BIGBOX
+        </button>
+      </div>
+      
+      <div class="box" data-js-Box>
+        Something Text for test Something Text for test Something Text for test
+        Something Text for test
+      </div>
+      <div class="outerBox" data-js-outerBox>
+        <div class="innerBox" data-js-innerBox></div>
+      </div>
     </div>
-    <div class="outerBox" data-js-outerBox>
-      <div class="innerBox" data-js-innerBox></div>
-    </div>
-</body>
+    
+  </body>
 </html>

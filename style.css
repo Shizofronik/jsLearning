@@ -1,3 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.hat {
+  width: 100%;
+  background-color: darkorchid;
+}
+
+.hat-buttons {
+  width: 100%;
+  display: inline-block;
+}
+
 .message-ball {
   font-size: 20px;
   line-height: 200px;
@@ -18,12 +40,10 @@
 
   background-color: aquamarine;
   border: 5px solid var(--border-color);
-  display: inline-block;
   height: 100px;
   width: 100px;
-  margin-top: 250px;
+  margin: 10px;
   overflow: auto;
-  padding: 30px;
 }
 
 .outerBox {
@@ -31,11 +51,9 @@
   background-color: blueviolet;
   border: 5px solid black;
   border-radius: 5%;
-  display: inline-block;
-  width: 200px;
+  width: 100px;
   margin-left: 10px;
   overflow: auto;
-  padding: 30px;
 }
 
 .innerBox {
@@ -43,8 +61,7 @@
   background-color: green;
   border: 5px solid black;
   border-radius: 5%;
-  height: 100px;
-  width: 100px;
+  height: 50px;
   margin: 10px;
   overflow: auto;
   padding: 30px;

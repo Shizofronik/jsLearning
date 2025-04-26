@@ -41,7 +41,6 @@ function showCircle(cx, cy, radius) {
             div.addEventListener('transitionend', function handler() {
             div.removeEventListener('transitionend', handler);
             resolve(div)
-            reject(div)//Не выполнится
             });
         }, 0);
     })
@@ -70,8 +69,6 @@ function createBigBox() {
     console.log(newBoxElement)
     //Если хотим добавить в начало, то использовать prepend
     //document.body.append(newBoxElement)
-
-    boxElement.style.marginTop = '150px'
     //before - создать перед элементом(boxElement)
     //after - создать после элемента
     boxElement.before(newBoxElement)
