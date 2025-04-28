@@ -104,3 +104,24 @@ outerBoxElement.addEventListener('click', (event) => highlight(outerBoxElement, 
 
 //Не стоит забывать о возможности перехватить событие на этапе погружения
 //передав 3-м аргументом в addEventListener()- true
+
+
+//⁡⁣⁣⁡⁣⁣⁢Делегирование событий⁡
+//вешаем обработчик событий на весь документ
+//в данном случае лучше повесить обработчик на ul class="todo-list"(родительский элемент todo-item)
+document.addEventListener('click', (event) => {
+    //Проверка на то что клик был именно по todo-item с помощью contains
+    if(event.target.classList.contains('todo-item')){
+        //добавляем класс is-complited(в css уже заданы свойства этого класса)
+        //Сколько бы мы не нажимали класс добавиться только один раз
+        event.target.classList.add('is-completed')
+        console.log(event.target)
+    }
+})
+
+//⁡⁣⁣⁢Отменить стандартное поведение браузера - event.preventDefault()⁡
+const linkElement = document.querySelector('a')
+
+linkElement.addEventListener('click', (event) => {
+    event.preventDefault()//теперь при нажатии на ссылку ничего не будет происходить
+})
