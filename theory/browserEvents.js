@@ -125,3 +125,7 @@ const linkElement = document.querySelector('a')
 linkElement.addEventListener('click', (event) => {
     event.preventDefault()//теперь при нажатии на ссылку ничего не будет происходить
 })
+
+
+//Взаимодействие с кастомными событиями смотерть в preloader.js и sectionAnim.js
+//Код выше не будет работать с последними версиями index.html и style.css
