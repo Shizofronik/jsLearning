@@ -10,95 +10,64 @@ body {
   min-height: 100vh;
 }
 
-.hat {
-  width: 100%;
-  background-color: darkorchid;
-}
-
-.hat-buttons {
-  width: 100%;
-  display: inline-block;
-}
-
-.message-ball {
-  font-size: 20px;
-  line-height: 200px;
-  text-align: center;
-}
-
-.circle {
-  transition-property: width, height;
-  transition-duration: 2s;
-  position: fixed;
-  transform: translateX(-50%) translateY(-50%);
-  background-color: red;
-  border-radius: 50%;
-}
-
-.box {
-  --border-color: red;
-
-  background-color: aquamarine;
-  border: 5px solid var(--border-color);
-  height: 100px;
-  width: 100px;
-  margin: 10px;
-  overflow: auto;
-}
-
-.outerBox {
-
+section {
+  transition-duration: 0.5s;
+  width: 100vw;
   background-color: blueviolet;
-  border: 5px solid black;
-  border-radius: 5%;
-  width: 100px;
-  margin-left: 10px;
-  overflow: auto;
-}
-
-.innerBox {
-
-  background-color: green;
-  border: 5px solid black;
-  border-radius: 5%;
-  height: 50px;
-  margin: 10px;
-  overflow: auto;
+  text-align: center;
   padding: 30px;
 }
 
-.yellows {
-    background-color: yellow !important;
-
+section.bottom {
+  background-color: chocolate;
+  transform: translateY(100vh);
+  height: 100vh;
+  
 }
 
-.big {
-    width: 200px;
+section.is-visible {
+  opacity: 1;
 }
 
-.todo {
-  margin: 10px;
-  margin-left: 20px;
-  padding: 5px;
+section:nth-child(2) {transition-delay: 0.2s;}
+section:nth-child(3) {transition-delay: 0.4s;}
+section:nth-child(4) {transition-delay: 0.6s;}
+section:nth-child(5) {transition-delay: 0.8s;}
+
+section:not(is-visible) {
+  opacity: 0;
 }
 
-.todo-list {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  row-gap: 5px;
+.preloader {
+ position: fixed;
+ z-index: calc(infinity);
+ inset: 0;
+ background-color: rebeccapurple;
+ animation-name: fade-out;
+ animation-duration: 3s;
+ animation-iteration-count: 1;
+ opacity: 0;
+ pointer-events: none;
 }
 
-.todo-item {
-  padding: 5px;
-  border: 4px solid;
-  cursor: pointer;
+.preloader__in {
+  position: absolute;
+  inset: 0;
+  background-color: chocolate;
+  animation-name: circle;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  clip-path: circle(75%);
 }
 
-.todo-item:hover {
-  border-color: chartreuse;
+@keyframes fade-out {
+  0% {opacity: 1;}
+  80% {opacity: 1;}
+  100% {opacity: 0;}
 }
 
-.todo-item.is-completed {
-  background-color: darkgreen;
+@keyframes circle {
+  0% {clip-path: circle(75%);}
+  50% {clip-path: circle(25%);}
+  100% {clip-path: circle(75%);}
 }

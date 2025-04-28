@@ -4,54 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="./script.js" type="module" defer></script>
+    <script src="./preloader.js" type="module" defer></script>
+    <script src="./sectionAnim.js" type="module" defer></script>
     <link rel="stylesheet" href="./style.css" />
 
     <title>frontend-test</title>
   </head>
 
   <body>
-    <div class="hat">
-      <div class="hat-buttons">
-        <form class="form" action="/login">
-          <input class="form__input" name="login" placeholder="Логин" />
-        </form>
+    <main>
+      <section>
+        <h1>Секция 1</h1>
+      </section>
 
-        <button onclick="hiddenLogin()" data-js-hiddenButton>
-          Скрыть логин
-        </button>
-        <button onclick="onViewLogin()" data-js-onViewButton>
-          Показать логин
-        </button>
-        <button id="button1" onclick="go()" data-js-button1>
-          Создать круг
-        </button>
-        <button id="button2" onclick="createBigBox()" data-js-button2>
-          Создать BIGBOX
-        </button>
-      </div>
+      <section>
+        <h1>Секция 2</h1>
+      </section>
 
-      <div class="box" data-js-Box>
-        Something Text for test Something Text for test Something Text for test
-        Something Text for test
-      </div>
-      <div class="outerBox" data-js-outerBox>
-        <div class="innerBox" data-js-innerBox></div>
-      </div>
-    </div>
+      <section>
+        <h1>Секция 3</h1>
+      </section>
 
-    <a href="https://www.youtube.com/watch?v=BY4lw9uykFk&list=PL0MUAHwery4qn4Y27iUxmzC-JiauX7vSL&index=37">
-      Ссылка</a>
+      <section>
+        <h1>Секция 4</h1>
+      </section>
 
-    <div class="todo">
-      <ul class="todo-list">
-        <li class="todo-item">todo-item</li>
-        <li class="todo-item">todo-item</li>
-        <li class="todo-item">todo-item</li>
-        <li class="todo-item">todo-item</li>
-        <li class="todo-item">todo-item</li>
-        <li class="todo-item">todo-item</li>
-        <li class="todo-item">todo-item</li>
-      </ul>
+      <section class="bottom">
+        <h1>BOTTOM SECTION</h1>
+      </section>
+    </main>
+
+    <div class="preloader">
+      <div class="preloader__in"></div>
     </div>
   </body>
 </html>
