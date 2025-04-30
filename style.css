@@ -29,6 +29,11 @@ section.is-visible {
   opacity: 1;
 }
 
+section:hover {
+  background-color: chocolate;
+  transition-delay: 0ms !important;
+}
+
 section:nth-child(2) {transition-delay: 0.2s;}
 section:nth-child(3) {transition-delay: 0.4s;}
 section:nth-child(4) {transition-delay: 0.6s;}
@@ -36,6 +41,24 @@ section:nth-child(5) {transition-delay: 0.8s;}
 
 section:not(is-visible) {
   opacity: 0;
+}
+
+.draggable {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  background-color: green;
+  z-index: 100;
+  cursor: grab;
+  transition-property: scale, opacity;
+  transition-duration: 0.2s;
+  touch-action: none;
+}
+
+.draggable.is-dragging {
+  cursor: grabbing;
+  opacity: 0.5;
+  scale: 1.05;
 }
 
 .preloader {

@@ -6,6 +6,7 @@
     <script src="./script.js" type="module" defer></script>
     <script src="./preloader.js" type="module" defer></script>
     <script src="./sectionAnim.js" type="module" defer></script>
+    <script src="./tasks/dragAndDrop.js" type="module" defer></script>
     <link rel="stylesheet" href="./style.css" />
 
     <title>frontend-test</title>
@@ -14,19 +15,19 @@
   <body>
     <main>
       <section>
-        <h1>Секция 1</h1>
+          <h1>Секция 1</h1>
       </section>
 
       <section>
-        <h1>Секция 2</h1>
+          <h1>Секция 2</h1>
       </section>
 
       <section>
-        <h1>Секция 3</h1>
+          <h1>Секция 3</h1>
       </section>
 
       <section>
-        <h1>Секция 4</h1>
+          <h1>Секция 4</h1>
       </section>
 
       <section class="bottom">
@@ -34,6 +35,8 @@
         <button class="mousetest">mouse test</button>
       </section>
     </main>
+
+    <div class="draggable" data-js-dnd></div>
 
     <div class="preloader">
       <div class="preloader__in"></div>
