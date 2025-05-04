@@ -30,11 +30,10 @@ class DragAndDrop {
         //В isDraggable будет true или false
         const isDraggable = target.matches(this.selectors.root)
 
+
         if(!isDraggable) {
             return
         }
-
-        console.log('onPointerDown')
 
         target.classList.add(this.stateClasses.isDragging)
         //Записываем координаты верхнего левого угла event.target
@@ -53,8 +52,8 @@ class DragAndDrop {
             return
         }
 
-        console.log('onPointerMove')
-
+        this.state.currentDraggingElement.style.position = 'absolute'
+        document.body.appendChild(this.state.currentDraggingElement)
         //Вычитаем из текущих координат указателя относительно всей страницы значения смещений 
         //записываем в x и y
         const x = event.pageX - this.state.offsetX
@@ -65,22 +64,21 @@ class DragAndDrop {
         this.state.currentDraggingElement.style.top = `${y}px`
     }
 
-    onPointerUp() {
+    onPointerUp(event) {
         if(!this.state.isDragging) {
             return
         }
 
-        console.log('onPointerUp')
-
         //Убираем класс is-dragging когда отпускаем элемент
         this.state.currentDraggingElement.classList.remove(this.stateClasses.isDragging)
         this.resetState()
+
     }
 
     bindEvents() {
         document.addEventListener('pointerdown', (event) => this.onPointerDown(event))
         document.addEventListener('pointermove', (event) => this.onPointerMove(event))
-        document.addEventListener('pointerup', () => this.onPointerUp())
+        document.addEventListener('pointerup', (event) => this.onPointerUp(event))
     }
 }
 
