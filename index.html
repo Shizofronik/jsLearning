@@ -16,13 +16,14 @@
   <body>
     <main>
       <section>
-          <h1>Введите имя</h1>
-          <input data-js-input placeholder="Name">
-          <p>Здравствуй, <b class="name-output"></b></p>
+        <h1>Авторизация</h1>
+        <input data-js-input placeholder="login" />
+        <input data-js-input placeholder="password" />
+        <button>Войти</button>
       </section>
 
       <section class="bottom">
-        <ul class="auto-insert-ul">        
+        <ul class="auto-insert-ul">
           <div class="auto-insert-place" data-js-aip></div>
           <div class="auto-insert-place" data-js-aip></div>
           <div class="auto-insert-place" data-js-aip></div>
@@ -33,16 +34,15 @@
           <div class="auto-insert-place" data-js-aip></div>
           <div class="auto-insert-place" data-js-aip></div>
         </ul>
-        <ul class="auto-insert-ul">
-          <div class="draggable" data-js-dnd></div>
-          <div class="draggable" data-js-dnd></div>
-          <div class="draggable" data-js-dnd></div>
-          <div class="draggable" data-js-dnd></div>
-          <div class="draggable" data-js-dnd></div>
+        <ul class="auto-insert-ul" data-js-dnd-parent>
+          <div class="draggable" data-js-dnd>Task1</div>
+          <div class="draggable" data-js-dnd>Task2</div>
+          <div class="draggable" data-js-dnd>Task3</div>
+          <div class="draggable" data-js-dnd>Task4</div>
+          <div class="draggable" data-js-dnd>Task5</div>
         </ul>
       </section>
     </main>
-
 
     <div class="preloader">
       <div class="preloader__in"></div>
