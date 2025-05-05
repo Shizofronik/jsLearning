@@ -3,6 +3,7 @@
 //3. Код-ревью +
 //4. Реализовать с учетом множества дом-элементов data-js-aip +
 //5. Менять родителя для вставляемого элемента +
+//6. Сделать так, чтобы если мы не попали элементом в секцию, он возвращался на исходную позицию +
 
 class AutoInsert {
     selectors = {
@@ -11,6 +12,7 @@ class AutoInsert {
     }
 
     initialState = {
+        defaultInsertableParent: null,
         currentInsertableElement: null,
         currentPlaceElement: null,
     }
@@ -52,6 +54,22 @@ class AutoInsert {
         currentInsertableElement.style.margin = `${0}px`
     }
 
+    ReturnElement() {
+        const {state} = this
+
+        if(!state.currentInsertableElement.hasAttribute(this.selectors.insertableElement)) {
+            return
+        }
+
+        if(state.defaultInsertableParent !== null) {
+        state.defaultInsertableParent.appendChild(state.currentInsertableElement)
+        state.currentInsertableElement.style.position = 'static'
+        state.currentInsertableElement.style.margin = `5px`
+        this.resetState()
+        }
+
+    }
+
     onPointerUp(event, autoInsertElement) {
         const {state} = this
 
@@ -77,10 +95,17 @@ class AutoInsert {
             this.resetState()
 
         }
+        else {
+            this.ReturnElement()
+        }
 
     }
 
     bindEvents() {
+        document.addEventListener('pointerdown', (event) => {
+            this.state.defaultInsertableParent = document.querySelector('[data-js-dnd-parent]')
+        })
+
         document.addEventListener('pointerup', (event) => {
             const allAutoInsertElements = document.querySelectorAll(this.selectors.placeElement)
             allAutoInsertElements.forEach((autoInsertElement) => {
