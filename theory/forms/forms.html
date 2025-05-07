@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./forms.js" type="module" defer></script>
+    <link rel="stylesheet" href="./style.css" />
+
+    <title>frontend-test</title>
+  </head>
+
+  <body>
+    <main>
+      <section>
+        <form id="regForm" action="/registration" method="post" data-js-regForm>
+          <p class="field">
+            <label class="field__label" for="login">Логин</label>
+            <input class="field__control" id="login" name="login" />
+          </p>
+          <p class="field">
+            <label class="field__label" for="password">Пароль</label>
+            <input class="field__control" id="password" name="password" type="password" />
+          </p>
+          <p class="field">
+            <label class="field__label" for="about">О себе</label>
+            <textarea class="field__control" id="about" name="about"></textarea>
+          </p>
+          <fieldset class="radios">
+            <legend class="radios__legend">Ваш пол</legend>
+      
+            <input class="radios__control" id="male" name="gender" type="radio" value="Мужской" checked/>
+            <label class="radios__label" for="male">Мужской</label>
+      
+            <input class="radios__control" id="female" name="gender" type="radio" value="Женский"/>
+            <label class="radios__label" for="female">Женский</label>
+          </fieldset>
+          <div class="field checkbox">
+            <input class="checkbox__control" id="agreement" name="agreement" type="checkbox" />
+            <label class="field__label checkbox__label" for="agreement">Согласен на всё</label>
+          </div>
+          <button type="submit">Регистрация</button>
+        </form>
+
+        <div class="city-selection">
+          <label for="city">Ваш город:</label>
+          <select id="city" name="city" form="regForm">
+            <option value="Москва">Москва</option>
+            <option value="Кемерово">Кемерово</option>
+            <option value="Чебоксары">Чебоксары</option>
+            <option value="c.Белокуракино">c.Белокуракино</option>
+          </select>
+        </div>
+      
+      </section>
+  </body>
+</html>
