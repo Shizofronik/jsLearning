@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="./forms.js" type="module" defer></script>
+    <script src="./script.js" type="module" defer></script>
+    <script src="./theory/forms/formsValidation.js" type="module" defer></script>
     <link rel="stylesheet" href="./style.css" />
 
     <title>frontend-test</title>
@@ -12,31 +13,77 @@
   <body>
     <main>
       <section>
-        <form id="regForm" action="/registration" method="post" data-js-regForm>
+        <form id="regForm" action="/registration" method="post" novalidate data-js-regForm>
           <p class="field">
             <label class="field__label" for="login">Логин</label>
-            <input class="field__control" id="login" name="login" />
+            <input
+            class="field__control" 
+            id="login" 
+            name="login" 
+            minlength="2"
+            maxlength="16"
+            aria-errormessage="login-errors"
+            required/>
+
+            <span class="field__errors" id="login-errors" data-js-regForm-field-errors></span>
           </p>
           <p class="field">
             <label class="field__label" for="password">Пароль</label>
-            <input class="field__control" id="password" name="password" type="password" />
+            <input 
+            class="field__control" 
+            id="password" 
+            name="password" 
+            type="password" 
+            minlength="4"
+            maxlength="16"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,16}"
+            title="Пароль должен содержать хотя бы 1 заглавную и 1 строчную букву, a также хотя бы 1 цифру."
+            aria-errormessage="password-errors"
+            required/>
+
+            <span class="field__errors" id="password-errors" data-js-regForm-field-errors></span>
           </p>
           <p class="field">
             <label class="field__label" for="about">О себе</label>
             <textarea class="field__control" id="about" name="about"></textarea>
+            <span class="field__errors" id="about-errors" data-js-regForm-field-errors></span>
           </p>
           <fieldset class="radios">
             <legend class="radios__legend">Ваш пол</legend>
       
-            <input class="radios__control" id="male" name="gender" type="radio" value="Мужской"/>
+            <input 
+            class="radios__control" 
+            id="male" name="gender" 
+            type="radio" 
+            value="Мужской"
+            aria-errormessage="gender-errors" 
+            required/>
+
             <label class="radios__label" for="male">Мужской</label>
       
-            <input class="radios__control" id="female" name="gender" type="radio" value="Женский"/>
+            <input 
+            class="radios__control" 
+            id="female" 
+            name="gender" 
+            type="radio" 
+            value="Женский" 
+            aria-errormessage="gender-errors" 
+            required/>
+
             <label class="radios__label" for="female">Женский</label>
+            <span class="field__errors" id="gender-errors" data-js-regForm-field-errors></span>
           </fieldset>
           <div class="field checkbox">
-            <input class="checkbox__control" id="agreement" name="agreement" type="checkbox" />
+            <input 
+            class="checkbox__control" 
+            id="agreement" 
+            name="agreement" 
+            type="checkbox" 
+            aria-errormessage="checkbox-errors"
+            required/>
+
             <label class="field__label checkbox__label" for="agreement">Согласен на всё</label>
+            <span class="field__errors" id="checkbox-errors" data-js-regForm-field-errors></span>
           </div>
           <button type="submit">Регистрация</button>
         </form>
