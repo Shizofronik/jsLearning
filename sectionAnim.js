@@ -10,7 +10,6 @@ function animateSection(sectionElements) {
     })
 }
 
-
 //Вешаем обработчик события на document и в нем запускаем animateSection
 //таким обраазом модульные части не пересекаются между собой и не усложняют код
 document.addEventListener('preloaderClose', () => {
