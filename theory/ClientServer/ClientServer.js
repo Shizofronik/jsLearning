@@ -1,11 +1,11 @@
 //⁡⁢⁣⁣API - Application Programming Interface⁡
 //Набор правил по каоторым части приложения общаются друг с другом
 
-const loadTodoFormElement = document.querySelector('.load-todo-form')
+const loadPostFormElement = document.querySelector('.load-post-form')
 const resultElement = document.querySelector('.result')
-const todoIdInputElement = document.querySelector('#todo-id')
+const postIdInputElement = document.querySelector('#post-id')
 
-loadTodoFormElement.addEventListener('submit', (event) => {
+loadPostFormElement.addEventListener('submit', (event) => {
     event.preventDefault()
     //Код(try it) с free rest api - fsonplaceholder
     //⁡⁢⁣⁡⁢⁣⁣response - объект с информацией о запросе⁡
@@ -15,14 +15,16 @@ loadTodoFormElement.addEventListener('submit', (event) => {
     400-499 - Ошибка во фронтенде
     500-526 - Ошибка в бэкенде
     */
-    fetch(`https://jsonplaceholder.typicode.com/todos/${todoIdInputElement.value}`)
+
+    //По умолчанию fetch делает get-запрос по указонному url
+    fetch(`http://localhost:3000/posts/${postIdInputElement.value}`)
         .then((response) => {
             console.log('response:', response)
 
             //Обработаем возможную ошибку
             if(!response.ok) {
                 const errorMessage = response.status === 404 ? 
-                'Задача по указанному идентификатору не найдена' : 
+                'Пост по указанному идентификатору не найдена' : 
                 'Что-то пошло не так'
 
                 throw new Error(errorMessage)
@@ -33,15 +35,15 @@ loadTodoFormElement.addEventListener('submit', (event) => {
         .then((json) => {
             console.log('json:', json)
 
-            const {title, id, complited} = json
+            const {title, id, complited, views} = json
 
             resultElement.innerHTML = `
                 <input 
-                id="todo-${id}>"
+                id="post-${id}>"
                 type="checkbox"
                 ${complited ? "checked" : ""} />
                 
-                <label for="todo-${id}">${title}</label>`
+                <label for="post-${id}">${title}, views: ${views}</label>`
         })
         .catch((error) => {
             console.log('error:', error)
